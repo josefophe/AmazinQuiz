@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { setDoc } from "@junobuild/core";
 import { AuthContext } from "./Auth";
 import { nanoid } from "nanoid";
+// import { Field, Form, Formik } from 'formik';
 
 export const Modal = () => {
   const [showModal, setShowModal] = useState(false);
@@ -70,8 +71,7 @@ export const Modal = () => {
 
   // Function to add a new question to the quiz
   const addQuestion = () => {
-    setQuizQuestions((prevQuestions) => [
-      ...prevQuestions,
+    setQuizQuestions(() => [
       { question: "", options: ["", "", "", ""], correctAnswerIndex: null },
     ]);
   };
@@ -112,8 +112,8 @@ export const Modal = () => {
 
   return (
     <>
-    {/* Button to open the quiz modal */}
-    <button
+      {/* Button to open the quiz modal */}
+      <button
         type="button"
         onClick={() => setShowModal(true)}
         className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -122,15 +122,15 @@ export const Modal = () => {
       </button>
 
       {/* Quiz modal */}
-      {showModal ? (
+      {showModal && (
         <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
           <div className="relative w-auto my-6 mx-auto max-w-3xl">
-            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-black outline-none focus:outline-none">
               <div className="relative p-6 flex-auto">
                 {/* Title input */}
                 <input
                   type="text"
-                  className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none resize-none"
+                  className="form-control block w-full px-3 py-1.5 text-base font-normal text-white bg-black bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-white focus:bg-black focus:border-indigo-600 focus:outline-none resize-none"
                   placeholder="Quiz Title"
                   value={quizTitle}
                   onChange={(e) => setQuizTitle(e.target.value)}
@@ -139,7 +139,7 @@ export const Modal = () => {
 
                 {/* Description textarea */}
                 <textarea
-                  className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none resize-none mt-4"
+                  className="form-control block w-full px-3 py-1.5 text-base font-normal text-white bg-black bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-white focus:bg-black focus:border-indigo-600 focus:outline-none resize-none mt-4"
                   rows="5"
                   placeholder="Quiz Description"
                   value={quizDescription}
@@ -153,12 +153,10 @@ export const Modal = () => {
                     {/* Question input */}
                     <input
                       type="text"
-                      className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none resize-none"
+                      className="form-control block w-full px-3 py-1.5 text-base font-normal text-white bg-black bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-white focus:bg-black focus:border-indigo-600 focus:outline-none resize-none"
                       placeholder={`Question ${questionIndex + 1}`}
                       value={question.question}
-                      onChange={(e) =>
-                        updateQuestionText(questionIndex, e.target.value)
-                      }
+                      onChange={(e) => updateQuestionText(questionIndex, e.target.value)}
                       disabled={progress}
                     />
 
@@ -168,16 +166,10 @@ export const Modal = () => {
                         {/* Option input */}
                         <input
                           type="text"
-                          className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none resize-none"
+                          className="form-control block w-full px-3 py-1.5 text-base font-normal text-white bg-black bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-white focus:bg-black focus:border-indigo-600 focus:outline-none resize-none"
                           placeholder={`Option ${optionIndex + 1}`}
                           value={option}
-                          onChange={(e) =>
-                            updateOptionText(
-                              questionIndex,
-                              optionIndex,
-                              e.target.value
-                            )
-                          }
+                          onChange={(e) => updateOptionText(questionIndex, optionIndex, e.target.value)}
                           disabled={progress}
                         />
 
@@ -186,54 +178,60 @@ export const Modal = () => {
                           type="radio"
                           name={`correct-answer-${questionIndex}`}
                           checked={question.correctAnswerIndex === optionIndex}
-                          onChange={() =>
-                            updateCorrectAnswer(questionIndex, optionIndex)
-                        }
-                        disabled={progress}
-                      />
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
+                          onChange={() => updateCorrectAnswer(questionIndex, optionIndex)}
+                          disabled={progress}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ))}
 
-            {/* Buttons */}
-            <div className="flex items-center justify-end mt-6 p-6 border-t border-solid border-slate-200 rounded-b">
-              {progress ? (
-                <div className="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-indigo-600 rounded-full" role="status" aria-label="loading">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              ) : (
-                <>
-                  {/* Close button */}
-                  <button
-                    className="background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
+                {/* Add Question button */}
+                <button
+                  className="mt-4 bg-indigo-600 text-white px-3 py-1.5 rounded"
+                  onClick={addQuestion}
+                  disabled={progress}
+                >
+                  Add Question
+                </button>
+              </div>
 
-                  {/* Submit button */}
-                  <button
-                    className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-25 ml-4"
-                    type="button"
-                    onClick={addQuiz}
-                    disabled={!valid}
-                  >
-                    Add Quiz
-                  </button>
-                </>
-              )}
+              {/* Buttons */}
+              <div className="flex items-center justify-end mt-6 p-6 border-t border-solid border-slate-200 rounded-b">
+                {progress ? (
+                  <div className="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-indigo-600 rounded-full" role="status" aria-label="loading">
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                ) : (
+                  <>
+                    {/* Close button */}
+                    <button
+                      className="background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={() => setShowModal(false)}
+                    >
+                      Close
+                    </button>
+
+                    {/* Submit button */}
+                    <button
+                      className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-25 ml-4"
+                      type="button"
+                      onClick={addQuiz}
+                      disabled={!quizTitle || !quizDescription || quizQuestions.some(q => q.question === '' || q.options.some(opt => opt === ''))}
+                    >
+                      Add Quiz
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
-        <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-      </div>) : null}
-    
+      )}
     </>
-      
-    
   );
 };
+
+// export default Modal;
 

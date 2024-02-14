@@ -36,7 +36,7 @@ export const Table = () => {
   return (
     <div className="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200 mt-8">
       <header className="px-5 py-4 border-b border-gray-100">
-        <h2 className="font-semibold text-gray-800">Entries</h2>
+        <h2 className="font-semibold text-gray-800">Quiz</h2>
       </header>
       <div className="p-3">
         <div className="overflow-x-auto">

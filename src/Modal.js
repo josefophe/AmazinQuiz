@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { setDoc } from "@junobuild/core";
+import { setDoc, setManyDocs  } from "@junobuild/core";
 import { AuthContext } from "./Auth";
 import { nanoid } from "nanoid";
 // import { Field, Form, Formik } from 'formik';

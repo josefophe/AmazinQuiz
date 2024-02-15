@@ -11,7 +11,7 @@ export default function App() {
   useEffect(() => {
     (async () => {
       await initJuno({
-        satelliteId: "csl6w-xiaaa-aaaal-adswq-cai",
+        satelliteId: "phu27-wqaaa-aaaal-adt6a-cai",
       });
 
     })();

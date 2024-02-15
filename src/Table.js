@@ -43,7 +43,7 @@ export const Table = () => {
           {items.map((item, index) => {
             const {
               key,
-              data: { text, url },
+              data: { title, description, questions },
             } = item;
 
             return (
@@ -51,9 +51,23 @@ export const Table = () => {
                 <span className="px-4 py-2 rounded-full text-gray-500 bg-gray-200 font-semibold text-sm flex align-center w-max">
                   {index + 1}
                 </span>
-                <div className="line-clamp-3 text-left grow">{text}</div>
+                <div className="line-clamp-3 text-left grow">{title}
+                <p className="text-gray-600 mb-2">{description}</p>
+                <button
+                  onClick={() => {
+                    // Handle click to view quiz details (questions and options)
+                    console.log("Fetching details for quiz:", key);
+                    // Implement logic to fetch and display quiz details here
+                  }}
+                  className="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 focus:outline-none focus:ring focus:border-indigo-300"
+                >
+                  View Quiz
+                </button>
+                </div>
+                
+
                 <div className="flex gap-2 justify-center align-middle">
-                  {url !== undefined ? (
+                  {/* {url !== undefined ? (
                     <a
                       aria-label="Open data"
                       rel="noopener noreferrer"
@@ -75,7 +89,7 @@ export const Table = () => {
                         />
                       </svg>
                     </a>
-                  ) : undefined}
+                  ) : undefined} */}
 
                   <Delete item={item} reload={list} />
                 </div>

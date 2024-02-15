@@ -47,6 +47,18 @@ To set up AmazinQuiz Dapp locally, follow these steps:
 
 5. Access the Dapp in your browser at `http://localhost:3000`.
 
+## Outcomes
+<img width="960" alt="Screenshot 2024-02-15 at 12 55 15" src="https://github.com/josefophe/AmazinQuiz/assets/8279868/aab28395-6a79-4141-ad8c-3b0c37ff7d87">
+
+<img width="849" alt="Screenshot 2024-02-15 at 12 58 28" src="https://github.com/josefophe/AmazinQuiz/assets/8279868/ed3cc515-72df-4c85-8dfa-b6915f69ff77">
+
+<img width="704" alt="Screenshot 2024-02-15 at 13 05 07" src="https://github.com/josefophe/AmazinQuiz/assets/8279868/16e0e4c4-1add-4855-a810-9ce46487b8e5">
+
+<img width="782" alt="Screenshot 2024-02-15 at 13 05 37" src="https://github.com/josefophe/AmazinQuiz/assets/8279868/398a372a-fbf3-4a7b-941b-e816d3f807a8">
+
+
+
+
 ## Challenges Faced
 
 While developing AmazinQuiz Dapp, some challenges were encountered:

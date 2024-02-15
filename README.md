@@ -54,8 +54,7 @@ To set up AmazinQuiz Dapp locally, follow these steps:
 
 <img width="704" alt="Screenshot 2024-02-15 at 13 05 07" src="https://github.com/josefophe/AmazinQuiz/assets/8279868/16e0e4c4-1add-4855-a810-9ce46487b8e5">
 
-<img width="782" alt="Screenshot 2024-02-15 at 13 05 37" src="https://github.com/josefophe/AmazinQuiz/assets/8279868/398a372a-fbf3-4a7b-941b-e816d3f807a8">
-
+<img width="753" alt="Screenshot 2024-02-15 at 13 29 20" src="https://github.com/josefophe/AmazinQuiz/assets/8279868/a5b3829a-dc2e-4f73-99c5-d4b292692e70">
 
 
 

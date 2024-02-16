@@ -83,3 +83,6 @@ The roadmap for AmazinQuiz Dapp includes:
 - Nationwide scalability for broader impact on academic performance.
 
 Feel free to contribute to the project and join us on our mission to revolutionize exam preparation in Nigeria!
+
+App Link: https://phu27-wqaaa-aaaal-adt6a-cai.icp0.io/
+

@@ -21,6 +21,7 @@ AmazinQuiz Dapp is tailored for Nigerian students seeking a seamless and engagin
 - **React:** The frontend of AmazinQuiz Dapp is built using React, providing a dynamic and responsive user interface.
 
 - **Juno:** Juno.build is integrated into the Dapp, serving as the primary solution for authentication and data storage. It offers functionality similar to traditional web2 providers, making it a reliable choice for secure and scalable applications.
+- **Tailwind** Styled using Tailwind CSS for efficient and customizable styling
 
 ## Installation and Setup Instructions
 
@@ -65,6 +66,13 @@ While developing AmazinQuiz Dapp, some challenges were encountered:
 - **Time Constraints:** Limited time impacted the ability to implement all planned features. A Proof of Concept (PoC) approach was adopted, focusing on core functionalities.
 
 - **Perfectionism:** Initially, there was a tendency to prioritize perfection over providing a PoC. A shift towards achieving a viable proof of concept helped overcome this challenge.
+
+
+## Limitations
+
+- The Dapp currently has limitations in storing multiple questions simultaneously. It uses the setDoc library, allowing only one question to be stored at a time. Future versions may consider using setManyDocs for bulk storage.
+- The feature to view quiz questions is currently under development. Users may experience limitations in accessing detailed quiz information.
+  
 
 ## Future Enhancements
 
